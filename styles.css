@@ -1,0 +1,146 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	background-color: #ccc;
+	padding: 5px;
+	font-size: 32px;
+	font-family: helvetica, arial;
+}
+
+.container hr {
+	border-color: #eee;
+	margin: 0 0 10px 0;
+}
+
+.container form[id=theForm] {
+	margin: 0 0 10px 0;
+}
+
+.container input[name=searchText] {
+	font-size: 0.5em;
+	font-style: italic;
+	border: 1px solid;
+	border-radius: 2px;
+	height: 33px;
+	display: inline-block;
+}
+
+.buttoncss {
+	font-size: 0.5em;
+	border: 1px solid;
+	width: 30px;
+	display: inline-block;
+	box-shadow: 2px 2px 5px #888;
+}
+
+.buttoncss:hover {
+	border: 1px solid red;
+	cursor: pointer;
+	box-shadow: 2px 2px 5px red;
+}
+
+.buttoncss:active {
+	box-shadow: 0px 0px 0px red;
+}
+
+.searchRow {
+	display: flex;
+	flex-direction: row;
+	max-width: 920px;
+	min-width: 200px
+}
+
+.formCol {
+	width: 510px;
+}
+
+.savedTweets {
+	font-size: 0.4em;
+	display: flex;
+	align-items: center;
+}
+
+.tweetBoxes {
+	display: flex;
+	flex-direction: row;
+	font-size: 0.4em;
+}
+
+.searchResultBox{
+	display: flex;
+	flex-direction: column;
+	
+}
+
+.tweetColumns {
+	background-color: #eee;
+}
+
+.tweetBox {
+	background-color: #eee;
+	padding: 2px;
+	width: 405px;
+	height: 500px;
+	overflow-y: auto;
+	border: 1px solid #eee;
+}
+
+.tweetMiddleCol {
+	background-color: #ccc;
+	width: 100px;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+}
+
+/* arrow */
+.tweetMiddleCol div:nth-child(2) {
+	font-size: 3em;
+	margin: 0;
+}
+
+.tweetItem {
+	display: flex;
+	flex-direction: row;
+	background-color: #fff;
+	border-bottom: 2px solid #ccc;
+}
+
+.tweetItemCol {
+	padding: 3px;
+}
+
+/* Picture column */
+.tweetItemCol:nth-child(1) {
+	width: 30px;
+}
+
+/* messages column */
+.tweetItemCol:nth-child(2) {
+	width: 400px;
+}
+
+.tweetItemCol2{
+	display: flex;
+	flex-direction: column;
+}
+
+.tweetMessageCol {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+/* Messages */
+.tweetMessageCol > div:nth-child(2) {
+	margin-top: 5px;
+}
+
+
+
+
+
+
+

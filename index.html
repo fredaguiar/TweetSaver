@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <title>Tweet Saver</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+	<script
+	  src="https://code.jquery.com/jquery-3.2.1.min.js"
+	  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+	  crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+  	<div class="container">
+  		<div>Tweet Saver</div>
+  		<div><hr></div>
+  		<div class="searchResultBox">
+  			<div class="searchRow">
+		  		<div class="searchRow">
+			  		<div class="formCol">
+						<form id="theForm">
+						  <input type="text" name="searchText" id="searchText" placeholder="Search Twitter">
+						  <input type="button" class="buttoncss" id="searchButton" value="&#x1f50d;">
+						</form>
+			  		</div>
+			  		<div class="savedTweets">
+			  			Saved Tweets
+			  		</div>
+		  		</div>
+		  	</div>
+		    <div class="tweetBoxes" >
+		    	<div id="box1" class="tweetColumns tweetBox">
+		    		<!-- Content will be added here -->
+		    	</div>
+		    	<div class="tweetColumns tweetMiddleCol">
+		    		<div>Drag Tweets</div>
+		    		<div>&#x2192;</div>
+		    		<div>to save</div>
+		    	</div>
+		    	<div id="box2" class="tweetColumns tweetBox" ondrop="appClosure.drop(event)" ondragover="appClosure.dragOver(event)" ondragleave="appClosure.dragLeave(event)">
+		    		<!-- Content will be added here -->
+		    	</div>
+		    </div>
+	    </div>
+    </div>
+  </body>
+
+  <script src="app.js"></script>
+
+</html>

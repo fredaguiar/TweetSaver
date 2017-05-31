@@ -13,7 +13,7 @@ var appClosure = function(){
 			let _this = this;
 			this.loadTweets();
 
-			$("#searchButton").on("click", function(ev){
+			$("#searchButton").on("click", ev => {
 				let text = $("#searchText").val();
 				let endpoint = `http://tweetsaver.herokuapp.com/?q=${text}&callback=?&count=10`;
 				let endpointEncoded = encodeURI(endpoint);
@@ -27,12 +27,12 @@ var appClosure = function(){
 					return false;
 				}
 
-				$.getJSON(endpointEncoded, function(data) {
+				$.getJSON(endpointEncoded, data => {
 					for (let tweet of data.tweets) {
 						this.addRow({ box: "#box1", name: tweet.user.name, image: tweet.user.miniProfileImageURL, 
 							date: new Date(tweet.createdAt).toISOString().slice(0,10), text: tweet.text, isDraggable: true });
 					}
-				}.bind(_this)); // or _this.addRow instead.
+				});
 			});
 		},
 
@@ -86,6 +86,7 @@ var appClosure = function(){
 
 			var toStorage = storedTweetsArr.join(SEP);
 			localStorage.setItem(LOCAL_STORAGE_KEY, toStorage);
+			console.log(this);
 			this.loadTweets();
 			$("#box2").css({"background-color":"#eee", "border":"1px solid #eee"});
 		    ev.preventDefault();

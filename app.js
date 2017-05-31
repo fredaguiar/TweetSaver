@@ -29,32 +29,32 @@ var appClosure = function(){
 
 				$.getJSON(endpointEncoded, function(data) {
 					for (let tweet of data.tweets) {
-						let datefmt = new Date(tweet.createdAt).toISOString().slice(0,10);
-						this.addRow($("#box1"), tweet.user.name, tweet.user.miniProfileImageURL, datefmt, tweet.text, true);
+						this.addRow({ box: "#box1", name: tweet.user.name, image: tweet.user.miniProfileImageURL, 
+							date: new Date(tweet.createdAt).toISOString().slice(0,10), text: tweet.text, isDraggable: true });
 					}
 				}.bind(_this)); // or _this.addRow instead.
 			});
 		},
 
-		addRow : function(box, name, image, date, text, isDraggable) {
+		addRow : function(tweet) {
 
-			let block = `<div class="tweetItem" draggable="${isDraggable}" ondragstart="appClosure.dragStart(event)"> 
-		    			<div class="tweetItemCol"><img id="picture" src="${image}"></div> 
+			let block = `<div class="tweetItem" draggable="${tweet.isDraggable}" ondragstart="appClosure.dragStart(event)"> 
+		    			<div class="tweetItemCol"><img id="picture" src="${tweet.image}"></div> 
 		    			<div class="tweetItemCol"> 
 			    			<div class="tweetItemCol2"> 
 			    				<div class="tweetMessageCol"> 
 			    					<div class=""> 
 			    						<span style="font-weight: 700; padding-right: 3px;">Full Name</span>  
-			    						@<span id="fullname">${name}</span><br> 
+			    						@<span id="fullname">${tweet.name}</span><br> 
 			    					</div> 
-			    					<div id="date">${date}</div> 
+			    					<div id="date">${tweet.date}</div> 
 			    				</div> 
-			    				<div id="result">${text}</div> 
+			    				<div id="result">${tweet.text}</div> 
 			    			</div> 
 			    		</div> 
 	    			</div>`;
 
-		    $(block).appendTo(box);
+		    $(block).appendTo($(tweet.box));
 		},
 
 		loadTweets : function() {
@@ -69,7 +69,7 @@ var appClosure = function(){
 			let storedTweetsArr = storedTweets.split(SEP);
 			for (let item of storedTweetsArr) {
 				let tweet = JSON.parse(item);
-				this.addRow($("#box2"), tweet.name, tweet.image, tweet.date, tweet.text, false);
+				this.addRow({ box: "#box2", name: tweet.name, image: tweet.image, date: tweet.date, text: tweet.text, isDraggable: false });
 			}
 		},
 
